@@ -1,0 +1,65 @@
+<!--pages/my/my.wxml-->
+<view class="my-container">
+    <view class="my-top">
+        <view class="my-top-tag">
+			    2项保障中
+		    </view>
+        <view class="bg-orange"></view>
+        <view class="my-top-container">
+            <view class="userInfo-content">
+                <image class="portrait" src="http://file.baozhixing.com/kids.png"></image>
+                <view class="username-container">
+                    <view class="username-content">用户昵称</view>
+                </view>
+            </view>
+            <view class="user-menu">
+                <view class="user-menu-item" wx:for="{{user_menu}}" wx:key="id" bind:tap="{{item.nav}}">
+                    <button wx:if="{{item.id === 3}}" open-type="contact" send-message-title='我的' show-message-card style="display:flex;position:absolute;top:0;left:0;right:0;bottom:0;opacity:0;"></button>
+                    <image class="menu-icon" src="{{item.image}}"></image>
+                    <view class="menu-text">{{item.text}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="recomend-container">
+        <view class="recomend-title">为您推荐</view>
+        <swiper class="swiper-recomend"
+          duration="{{300}}"
+          display-multiple-items='1'
+          circular='{{false}}'
+          next-margin='225rpx'
+          previous-margin='40rpx'
+      >
+		    <block wx:for="{{productLunbo}}" wx:key="{{index}}">
+                <swiper-item class="swiper-item">
+                    <view class="swiper-item-content">
+                        <view class="product-title">
+                            <view class="product-title-tag">孝心优选</view>
+                            <view class="product-title-text PFM">泰然定期保</view>
+                        </view>
+                        <view class="center-text">
+                            确诊即赔
+                        </view>
+                        <text class="miaoshu">覆盖高发百种重疾，确诊即赔</text>
+                        <view class="swiper-item-bottom">
+                            <view class="bottom-text">
+                                35120人已购
+                            </view>
+                            <view class="toDetails" bind:tap="toProduct">
+                                查看
+                            </view>
+                        </view>
+                    </view>	
+                </swiper-item>
+            </block>
+        </swiper>    
+    </view>
+    <view class="option-menu">
+        <navigator class="option-menu-item-nav" wx:for="{{option_menu}}" wx:key="id" url="{{item.nav}}">
+            <view class="option-menu-item">
+                <image class="option-menu-item-image" src="{{item.image}}"></image>
+                <text class="option-menu-item-text">{{item.text}}</text>
+            </view>
+        </navigator>
+    </view>
+</view>

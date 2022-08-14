@@ -1,0 +1,56 @@
+/* productA/pages/buyInsure/healthNotify/healthNotify.wxss */
+.healthNotify-container{
+  width: 100%;
+}
+.healthNotify-other{
+  padding: 30rpx 40rpx;
+}
+.other-title{
+  font-size: 30rpx;
+}
+.other-tag{
+  display: flex;
+  margin-top: 30rpx;
+  font-size: 28rpx;
+  color: #636363;
+}
+/* 底部 */
+.healthNotify-footer{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 99rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  border-top: 1rpx solid #efefef;
+}
+.footer-left{
+  width: 128rpx;
+  padding-top: 12rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #636363;
+  border-right: 1rpx solid #efefef;
+}
+
+.footer-center{
+  font-size: 36rpx;
+  color: #636363;
+}
+.footer-right{
+  font-size: 36rpx;
+  width: 336rpx;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  border-top: 1rpx solid #ffa600;
+  background: linear-gradient(90deg,rgba(252,191,0,1) 0%,rgb(255, 166, 0) 100%);
+}

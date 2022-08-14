@@ -1,0 +1,55 @@
+/* baodanC/pages/baodanList/baodanList.wxss */
+.baodanlist{
+    background-color: #ffffff;
+    position: relative;
+    padding: 5rpx;
+    border: 1rpx solid #afafaf;
+    border-radius: 20rpx;
+    margin: 20rpx 10rpx;
+}
+.baodan-title{
+    display: flex;
+    justify-content: space-between;
+    padding: 5rpx;
+}
+.title-left{
+    font-size: 40rpx;
+}
+.title-right{
+    text-align:right;
+    font-size: 30rpx;
+    color: blue;
+    padding-right: 40rpx;
+}
+.baodan-info{
+    display: flex;
+    flex-flow: row nowrap;
+    height: 250rpx;
+    width: 750rpx;
+    padding-bottom: 50rpx;
+}
+.baodan-container-item{
+    display: flex;
+    padding:5rpx;
+    
+}
+.baodan-container-item-left{
+    width: 160rpx;
+    padding-right: 20rpx;
+}
+.baodan-container-item-right{
+    width: 350rpx;
+}
+.baodan-detail{
+    width:116rpx;
+	height:34rpx;
+	background:linear-gradient(90deg,rgba(252,191,0,1) 0%,rgba(255,166,0,1) 100%);
+	border-radius:29rpx;
+	color: #fff;
+	font-size: 24rpx;
+	line-height: 34rpx;
+    text-align: center;
+    float: right;
+    margin-top: -45rpx;
+    margin-right: 40rpx;
+}

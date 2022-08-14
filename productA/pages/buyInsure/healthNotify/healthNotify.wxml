@@ -1,0 +1,25 @@
+<!--productA/pages/buyInsure/healthNotify/healthNotify.wxml-->
+<view class="healthNotify-container">
+  <view class="healthNotify-top">
+    <van-notice-bar wrapable scrollable="{{ false }}" text="为保证被保人的保险权益,请认真阅读本页健康告知,确认被保人是杏符合投保条件" />
+  </view>
+  <view class="healthNotify-other">
+    <view class="other-title">被保险人目前或过往未出现下列情况:</view>
+    <text class="other-tag">1.被保险人曾向其他保险公司申请过重大疾病理赔或被其他保险公司拒保、加费、延期或以附加限制条件承保。</text>
+  </view>
+  <!-- 底部 -->
+  <view class="healthNotify-footer">
+    <view class="footer-left" bindtap="ShowDialog1">
+      <van-icon class="footer-left-img" name="service-o" size="46rpx"/>
+      <text class="footer-left-text">咨询</text>
+    </view>
+    <view class="footer-center" bindtap="ShowDialog2">
+      有部分内容
+    </view>
+    <view class="footer-right" bindtap="toFormFill">
+      确认无上述问题
+    </view>
+  </view>
+
+  <van-dialog id="van-dialog" confirm-button-color="#FDB500" />
+</view>

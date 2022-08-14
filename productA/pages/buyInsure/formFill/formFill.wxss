@@ -1,0 +1,142 @@
+/* productA/pages/buyInsure/formFill/formFill.wxss */
+
+.formFill-container{
+  width: 100%;
+  background-color: #F5F5F5;
+}
+.formFill-top{
+  padding: 20rpx 38rpx;
+  font-size: 36rpx;
+  background-color: #fff;
+}
+.formFill-center{
+  margin-bottom: 20rpx;
+  background-color: #fff;
+}
+.formFill-center-top{
+  padding: 20rpx 38rpx;
+}
+.formFill-bottom{
+  padding: 20rpx 38rpx;
+  background-color: #fff;
+}
+.input-item{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  border-bottom: 2rpx solid #ececec;
+  padding: 20rpx 32rpx;
+  position: relative;
+}
+.input-lable{
+  font-size: 28rpx;
+  color: #646566;
+}
+.input-value{
+  font-size: 32rpx;
+  color: #282828;
+  width: 540rpx;
+}
+.input-item-time{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2rpx solid #ececec;
+  padding: 20rpx 32rpx;
+  font-size: 28rpx;
+  color: #646566;
+}
+.input-item-time-hidden{
+  opacity: 0.5;
+}
+.input-left{
+  width: 140rpx;
+  display: flex;
+  justify-content: flex-end;
+}
+.input-value-right{
+  display: flex;
+}
+.formFill-tips{
+  padding: 20rpx 38rpx;
+  margin-bottom: 100rpx;
+}
+.tips-context{
+  font-size: 26rpx;
+  color: #646566;
+}
+.tips-tag{
+  color:#1989FA;
+}
+
+/* 底部 */
+.formFill-footer{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 101;
+}
+.footer-price{
+  margin: auto 20rpx;
+}
+.price-left{
+  font-size: 24rpx;
+  color: #F43C3C;
+}
+.peice-right{
+  font-size: 38rpx;
+  color: #F43C3C;
+}
+/* 底部客服弹窗 */
+.kefu-box{
+}
+.kefu-container{
+  width: 100%;
+}
+.kefu-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 40rpx auto;
+}
+.kefu-info{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.kefu-tag1{
+  font-size: 28rpx;
+  color: #636363;
+}
+.kefu-tag2{
+  font-size: 26rpx;
+  color: #FCBB00;
+}
+.kefu-icon{
+  width: 100%;
+}
+.kefu-img{
+ 
+}
+.kefu-img image{
+  margin: 20rpx 140rpx;
+}
+.kefu-tip{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24rpx;
+  color: #9E9E9E;
+  margin-bottom: 60rpx;
+}
+.kefu-copy{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20rpx 30rpx;
+  color: #fff;
+  border: 1rpx solid #FCBB00;
+  background-color: #FDB800;
+}

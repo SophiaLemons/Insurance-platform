@@ -1,0 +1,168 @@
+<!--productA/pages/buyInsure/formFill/formFill.wxml-->
+<view class="formFill-container">
+  <view class="formFill-top">
+    <text class="formFill-title">填写投保信息</text>
+  </view>
+  <!-- 投保人信息 -->
+  <view class="formFill-center">
+    <view class="formFill-center-top">
+      <text class="center-title">投保人信息</text>
+    </view>
+    <view class="center-context">
+      <van-cell-group>
+        <!-- 用户名 -->
+        <van-field label="用户名" model:value="{{username1}}" placeholder="请输入用户名" />
+        <!-- 证件类型 -->
+        <van-field label="证件类型" model:value="{{typeId1}}" is-link placeholder="请选择" use-button-slot bind:click-input="showTypeId1">
+        </van-field>
+        <!-- 证件号码 -->
+        <van-field label="证件号码" model:value="{{id1}}" placeholder="请填写有效的证件号码" />
+        <!-- 证件有效期 -->
+        <view class="input-item">
+          <view class="input-lable">证件有效期</view>
+          <view class="input-value">
+            <view class="check-value">
+              <van-checkbox value="{{ checked }}" checked-color="#FEAF00" icon-size="18px" shape="square" bind:change="onChange">
+                长期有效
+              </van-checkbox>
+            </view>
+          </view>
+        </view>
+        <!-- 起始时间 -->
+        <view class="input-item-time {{checked === true ? 'input-item-time-hidden' : ''}}">
+          <view class="input-left">
+            <view>起</view>
+          </view>
+          <view class="input-center">
+            {{startTime1}}
+          </view>
+          <view class="input-value-right">
+            <van-icon name="arrow" bind:click="selectStartTime" />
+          </view>
+        </view>
+        <!-- 终止时间 -->
+        <view class="input-item-time {{checked === true ? 'input-item-time-hidden' : ''}}" >
+          <view class="input-left">
+            <view>止</view>
+          </view>
+          <view class="input-center">
+            {{endTime1}}
+          </view>
+          <view class="input-value-right">
+            <van-icon name="arrow" bind:click="selectEndTime" />
+          </view>
+        </view>
+        <!-- 手机号码 -->
+        <van-field label="手机号码" model:value="{{phone1}}" placeholder="请填写常用的手机号" />
+        <!-- 电子邮箱 -->
+        <van-field label="电子邮箱" model:value="{{email1}}" placeholder="用于发送电子保单" />
+        <!-- 职业类型 -->
+        <van-field label="电子邮箱" model:value="{{typeObj1}}" placeholder="请选择职业类型" />
+      </van-cell-group>
+    </view>
+  </view>
+  <!-- 被保人信息 -->
+  <view class="formFill-center">
+    <view class="formFill-center-top">
+      <text class="center-title">被保人信息</text>
+    </view>
+    <view class="center-context">
+      <van-cell-group bind:click-input="allValue">
+        <!-- 用户名 -->
+        <van-field label="用户名" model:value="{{username2}}" placeholder="请输入用户名" />
+        <!-- 证件类型 -->
+        <van-field label="证件类型" model:value="{{typeId2}}" is-link placeholder="请选择" use-button-slot bind:click-input="showTypeId2">
+        </van-field>
+        <!-- 证件号码 -->
+        <van-field label="证件号码" model:value="{{id2}}" placeholder="请填写有效的证件号码" />
+        <!-- 手机号码 -->
+        <van-field label="手机号码" model:value="{{phone2}}" placeholder="请填写常用的手机号" />
+        <!-- 电子邮箱 -->
+        <van-field label="电子邮箱" model:value="{{email2}}" placeholder="用于发送电子保单" />
+      </van-cell-group>
+    </view>
+  </view>
+  <!-- 续期账户信息 -->
+  <view class="formFill-bottom">
+    <view class="formFill-bottom-title">
+      续期账户信息
+    </view>
+    <view>
+      <van-cell-group>
+        <!-- 续期银行 -->
+        <van-field label="续期银行" model:value="{{bank}}" placeholder="请选择" use-button-slot is-link bind:click-input="showBank">
+        </van-field>
+        <!-- 银行卡号 -->
+        <van-field label="银行卡号" model:value="{{cardNum}}" placeholder="请输入银行卡号" />
+      </van-cell-group>
+    </view>
+  </view>
+
+  <!-- 勾选同意 -->
+  <view class="formFill-tips">
+    <van-checkbox  value="{{ checkedTips }}" shape="square" bind:change="onChangeTips" icon-size="13px" label-disabled>
+      <view class="tips-context"> 本人已阅读并同意
+      <text class="tips-tag" bindtap="showXuzhi">《投保须知》</text>
+      <text class="tips-tag" bindtap="showTiaokuan">《保险条款》</text>中的全部内容</view>
+    </van-checkbox>
+  </view>
+  <!-- 未勾选底部的提示 -->
+  <van-toast id="van-toast" />
+
+  <view class="formFill-footer">
+  <van-goods-action>
+        <van-goods-action-icon icon="service-o" text="咨询" bind:click="onClickIcon" />
+        <van-goods-action-icon icon="phone-o" text="客服" bind:click="onShowkefu" />
+        <view class="footer-price">
+          <text class="price-left">￥</text>
+          <text class="peice-right">775.50</text>
+        </view>
+        <van-goods-action-button type="warning" text="立即投保" bind:click="onClickButton" />
+      </van-goods-action>
+  </view>
+  <!-- 证件类型弹窗 投保人 -->
+  <van-popup show="{{ isShowTypeId1 }}" custom-style="height: 60%" position="bottom">
+    <van-picker show-toolbar columns="{{ columns }}" value-key="name"  bind:confirm="onConfirm1" title="请选择分类" defaultIndex="{{activeIndex1}}" />
+  </van-popup>
+    <!-- 证件类型弹窗 被保人 -->
+    <van-popup show="{{ isShowTypeId2 }}" custom-style="height: 60%" position="bottom">
+    <van-picker show-toolbar columns="{{ columns }}" value-key="name" bind:confirm="onConfirm2" title="请选择分类" defaultIndex="{{activeIndex2}}" />
+  </van-popup>
+  <!-- 续期银行弹窗 -->
+  <van-popup show="{{ isShowBank }}" custom-style="height: 60%" position="bottom">
+    <van-picker show-toolbar columns="{{ bankList }}" value-key="name" bind:confirm="onConfirm3" title="请选择分类" defaultIndex="{{activeIndex3}}" />
+  </van-popup>
+  <!-- 起始时间弹窗 -->
+  <van-popup show="{{ isShowStartTime }}" custom-style="height: 60%" position="bottom">
+    <van-datetime-picker type="date" value="{{ currentDate1 }}" bind:input="onInputStart" min-date="{{ minDate1 }}" formatter="{{ formatter }}" bind:confirm="confirmStartTime" bind:cancel="cancleStartTime" />
+  </van-popup>
+  <!-- 终止时间弹窗 -->
+  <van-popup show="{{ isShowEndTime }}" custom-style="height: 60%" position="bottom">
+    <van-datetime-picker type="date" value="{{ currentDate2 }}" bind:input="onInputEnd" min-date="{{ minDate2 }}" formatter="{{ formatter }}" bind:confirm="confirmEndTime" bind:cancel="cancleEndTime" />
+  </van-popup>
+  <!-- 咨询弹窗 -->
+  <van-dialog id="van-dialog" confirm-button-color="#576B95" />
+  <!-- 客服弹窗 -->
+  <view class="kefu-box">
+    <van-popup show="{{ showKeFu }}" bind:close="onCloseKeFu" closeable round>
+      <view class="kefu-container">
+        <view class="kefu-title">客服咨询</view>
+        <view class="kefu-info">
+          <view class="kefu-tag1">产品条款看不懂？ 健康告知有疑问？</view>
+          <view class="kefu-tag2">我们的顾问为您提供专业解答！</view>
+        </view>
+        <view class="kefu-icon">
+          <van-divider dashed />
+          <view  class="kefu-img">
+            <image src='http://file.baozhixing.com/IMG_1466.png' style='height:360rpx;width:360rpx;' show-menu-by-longpress></image>
+          </view>
+          <view class="kefu-tip">点击二维码长按保存</view>
+          <view class="kefu-copy" bindtap="copyWeixi">复制微信号</view>
+        </view>
+      </view>
+    </van-popup>
+  </view>
+</view>
+
+<tiaokuan hiddenTiaokuan='{{showTiaokuan}}'></tiaokuan>
+<xuzhi hiddenXuzhi='{{showXuzhi}}'></xuzhi>

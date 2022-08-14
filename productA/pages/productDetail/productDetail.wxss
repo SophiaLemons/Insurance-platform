@@ -1,0 +1,421 @@
+/* productA/pages/productDetail/productDetail.wxss */
+.productDetail-container{
+  width: 100%;
+  background-color: #efefef;
+}
+.img{
+  width: 100%;
+   /* 去除图片下小缝隙 */
+  display: block;
+  background-color: #fff;
+}
+.productDetail-box{
+  padding: 20rpx 40rpx;
+  background-color: #fff;
+}
+/* 商品标题 */
+.box1{
+  width: 100%
+}
+.detail-title{
+  font-size: 38rpx;
+  margin-bottom: 20rpx;
+}
+.detail-info1{
+  display: flex;
+  justify-content: space-between;
+}
+.detail-tags{
+  display: flex;
+  margin: 20rpx 0;
+  color: #9E9E9E;
+  font-size: 28rpx;
+}
+.tag1{
+  padding-right: 20rpx;
+  border-right: 1px solid #9E9E9E;
+}
+.tag2{
+  margin-left: 20rpx;
+}
+.logo{
+  position: absolute;
+  right: 40rpx;
+  width: 150rpx;
+}
+.detail-info2{
+  display: flex;
+  align-items: center;
+  margin-top: 20rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid #ececec;
+}
+.info-item{
+  margin-right: 20rpx;
+}
+.info-item-left{
+  font-size: 26rpx;
+  color: #9E9E9E;   
+}
+.info-item-right{
+  font-size: 27rpx;
+  margin: 0 6rpx;
+}
+/* 投保方案 */
+.box2{
+  width: 100%;
+  margin-top: 40rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid #ececec;
+}
+.box2-top{
+  display: flex;
+  justify-content: space-between;
+}
+.box2-title{
+  font-size: 34rpx;
+}
+.box2-top-right{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box2-top-img{
+  width: 50rpx;
+  margin-right: 16rpx;
+}
+.top-right-tag{
+  font-size: 28rpx;
+}
+.box2-center{
+  margin-top: 40rpx;
+}
+.plan-items{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.plan-item{
+  width: 100%;
+  display: flex;
+  font-size: 30rpx;
+  color: #9E9E9E;
+  padding: 10rpx 36rpx;
+  border: 1rpx solid #ececec;
+}
+.plan-item:last-child{
+  border-bottom-right-radius: 10rpx;
+  border-top-right-radius: 10rpx;
+}
+.plan-item:first-child{
+  border-top-left-radius: 10rpx;
+  border-bottom-left-radius: 10rpx;
+}
+.plan-item-active{
+  position: relative;
+  width: 100%;
+  color: #fff;
+  background-color: #FFA600;
+  border: 1rpx solid #FFA600;
+}
+.plan-item-active::after{
+  position: absolute;
+  content: "";
+  height: 17rpx;
+  width: 17rpx;
+  bottom: -10rpx;
+  margin-left: -9rpx;
+  left: 80rpx;
+  background-color: #FFA600;
+  transform: rotate(45deg);
+}
+.plan-context{
+  width: 100%;
+  margin-top: 30rpx;
+  display: flex;
+  flex-direction: column;
+}
+.content-item{
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  margin: 10rpx 0;
+}
+.box2-bottom{
+  margin-top: 40rpx;
+}
+.bottom-info{
+  font-size: 26rpx;
+  color: cornflowerblue;
+}
+/* 保费 */
+.box3-container{
+  margin-top: 40rpx;
+}
+.box3-top{
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+.box3-top-left{
+  font-size: 26rpx;
+  color: #9E9E9E;
+}
+.price-tag1{
+  font-size: 24rpx;
+  color: #FCBB00;
+}
+.price-tag2{
+  font-size: 32rpx;
+  color: #FCBB00;
+}
+.price-tag3{
+ font-size: 24rpx;
+ color: #9E9E9E;
+ margin-left: 8rpx;
+}
+.box3-center{
+  margin: 40rpx 0;
+  padding: 30rpx;
+  box-shadow:0px 10rpx 30rpx 0px rgba(0,0,0,0.12);
+	border-radius:20rpx;
+	margin-bottom: 40rpx;
+	background-image: url(http://file.baozhixing.com/reason-bg.png);
+	background-repeat: no-repeat;
+	background-position: right top;
+	background-size: 178rpx auto;
+}
+.center-title{
+  display: flex;
+  font-size: 32rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  margin-bottom: 20rpx;
+}
+.center-item{
+  display: flex;
+  font-size: 28rpx;
+  height: 34rpx;
+  list-style: 34rpx;
+  margin-bottom: 20rpx;
+  padding-left: 34rpx;
+  position: relative;
+}
+.center-item::after{
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 50%;
+  margin-top: -7rpx;
+	height: 14rpx;
+	width: 14rpx;
+	border-radius: 50%;
+	background-color: #FFA600;
+}
+.box3-bottom{
+  width: 100%;
+  padding-bottom: 40rpx;
+  border-bottom: 2rpx solid #ececec;
+}
+.box3-img{
+  width: 100%;
+}
+
+/* 理赔流程 */
+.box4-container{
+  width: 100%;
+  margin-top: 40rpx;
+}
+.box4-title{
+  font-size: 34rpx;
+}
+.box4-items{
+  margin-top: 40rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.box4-item{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.box4-item-img{
+  width: 100rpx;
+  height: 100rpx;
+}
+.box4-item-title{
+  color: #9E9E9E;
+  font-size: 26rpx;
+  margin-top: 20rpx;
+}
+.right_icon1{
+  width: 60rpx;
+}
+.right_icon2{
+  width: 60rpx;
+}
+.box4-bottom{
+  font-size: 24rpx;
+  color: cornflowerblue;
+  margin-top: 40rpx;
+}
+/* 投保 条款 问题 */
+.productDetail-menu{
+  width: 100%;
+  padding-top: 30rpx;
+  background-color: #fff;
+  margin-bottom: 130rpx;
+  margin-top: 16rpx;
+}
+.menu-items{
+  display: flex;
+  justify-content: space-around;
+}
+.menu-item{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+.menu-item-after{
+  position: relative;
+}
+.menu-item-after::after{
+  position: absolute;
+  content: "";
+  right: -76rpx;
+  top: 30rpx;
+  height: 88rpx;
+  width: 2rpx;
+  background-color: #ececec;
+}
+.menu-img{
+  width: 96rpx;
+}
+.menu-info{
+  font-size: 24rpx;
+  margin-top: 10rpx;
+}
+.footer{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 101;
+}
+.footer-price{
+  margin: auto 20rpx;
+}
+.price-left{
+  font-size: 24rpx;
+  color: #F43C3C;
+}
+.peice-right{
+  font-size: 38rpx;
+  color: #F43C3C;
+}
+/* 保费试算 */
+.caculatePopup-box{
+  width: 100%;
+  padding-left: 30rpx;
+}
+.pop{
+  width: 100%;
+}
+.caculatePopup-top{
+  margin: 30rpx 30rpx;
+  padding-bottom: 30rpx;
+  border-bottom: 1rpx solid #ececec;
+}
+.top-title{
+  font-size: 36rpx;
+}
+.caculatePopup-context{
+  margin-left: 30rpx;
+}
+.context-box{
+  display: flex;
+  margin: 20rpx 0;
+  justify-content: center;
+  align-items: center;
+}
+.context-box-title{
+  width: 24%;
+  font-size: 28rpx;
+  color: #636363;
+}
+.context-box-items{
+  white-space: nowrap;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  width: 650rpx;
+  padding-top: 6rpx;
+  color: #636363;
+}
+.context-box-item{
+  display: inline-block;
+  margin: 10rpx 10rpx;
+  padding: 10rpx 26rpx;
+  border: 1rpx solid #ececec;
+  border-radius: 30rpx;
+}
+.context-box-item-active{
+  color:#fff;
+  background-color: #ffa600;
+	border:2rpx solid #ffa600;
+}
+/* 底部客服弹窗 */
+.kefu-box{
+}
+.kefu-container{
+  width: 100%;
+}
+.kefu-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 40rpx auto;
+}
+.kefu-info{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.kefu-tag1{
+  font-size: 28rpx;
+  color: #636363;
+}
+.kefu-tag2{
+  font-size: 26rpx;
+  color: #FCBB00;
+}
+.kefu-icon{
+  width: 100%;
+}
+.kefu-img{
+ 
+}
+.kefu-img image{
+  margin: 20rpx 140rpx;
+}
+.kefu-tip{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24rpx;
+  color: #9E9E9E;
+  margin-bottom: 60rpx;
+}
+.kefu-copy{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20rpx 30rpx;
+  color: #fff;
+  border: 1rpx solid #FCBB00;
+  background-color: #FDB800;
+}

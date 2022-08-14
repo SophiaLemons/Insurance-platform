@@ -1,0 +1,155 @@
+<!--baodanC/pages/baodanList/baodanList.wxml-->
+<!-- <text>baodanC/pages/baodanList/baodanList.wxml</text> -->
+<view>
+    <view>
+        <van-tabs active="{{ active }}" bind:change="onChange">
+            <van-tab title="全部">
+                <view wx:for="{{baodanlistall}}" wx:key="index" class="baodanlist">
+                    <view class="baodan-title">
+                        <view class="title-left">{{item.productname}}</view>
+                        <view class="title-right">{{item.status}}</view>
+                    </view>    
+                    <view class="baodan-info">
+                        <view class="baodan-container">
+                            <view class="baodan-container-item">
+                                <view class="baodan-container-item-left">被保人:</view>
+                                <view class="baodan-container-item-right">{{item.people}}</view>
+                            </view>
+                            <view class="baodan-container-item">
+                                <view class="baodan-container-item-left">保单号:</view>
+                                <view class="baodan-container-item-right">{{item.policynumber}}</view>
+                            </view>
+                            <view class="baodan-container-item">
+                                <view class="baodan-container-item-left">保障期限:</view>
+                                <view class="baodan-container-item-right">{{item.protectiontime}}</view>
+                            </view>
+                        </view>
+                        <image src="{{item.image}}" style="height: 200rpx;width:200rpx;padding:5rpx;"></image>        
+                    </view>
+                    <view class="baodan-detail" bind:tap="onbaodanDetails">
+                        查看详细
+                    </view>
+                </view>
+            </van-tab>
+            <van-tab title="待支付">
+                <view wx:for="{{baodanlistall}}" wx:key="index" class="baodanlist">
+                    <view class="baodan-title">
+                        <view class="title-left">{{item.productname}}</view>
+                        <view class="title-right">{{item.status}}</view>
+                    </view>    
+                    <view class="baodan-info">
+                        <view class="baodan-container">
+                            <view class="baodan-container-item">
+                                <view class="baodan-container-item-left">被保人:</view>
+                                <view class="baodan-container-item-right">{{item.people}}</view>
+                            </view>
+                            <view class="baodan-container-item">
+                                <view class="baodan-container-item-left">保单号:</view>
+                                <view class="baodan-container-item-right">{{item.policynumber}}</view>
+                            </view>
+                            <view class="baodan-container-item">
+                                <view class="baodan-container-item-left">保障期限:</view>
+                                <view class="baodan-container-item-right">{{item.protectiontime}}</view>
+                            </view>
+                        </view>
+                        <image src="{{item.image}}" style="height: 200rpx;width:200rpx;padding:5rpx;"></image>        
+                    </view>
+                    <view class="baodan-detail" bind:tap="onbaodanDetails">
+                        查看详细
+                    </view>
+                </view>
+            </van-tab>
+            <van-tab title="保障中">
+                <view wx:for="{{baodanlistall}}" wx:key="index" class="baodanlist">
+                    <view class="baodan-title">
+                        <view class="title-left">{{item.productname}}</view>
+                        <view class="title-right">{{item.status}}</view>
+                    </view>    
+                    <view class="baodan-info">
+                        <view class="baodan-container">
+                            <view class="baodan-container-item">
+                                <view class="baodan-container-item-left">被保人:</view>
+                                <view class="baodan-container-item-right">{{item.people}}</view>
+                            </view>
+                            <view class="baodan-container-item">
+                                <view class="baodan-container-item-left">保单号:</view>
+                                <view class="baodan-container-item-right">{{item.policynumber}}</view>
+                            </view>
+                            <view class="baodan-container-item">
+                                <view class="baodan-container-item-left">保障期限:</view>
+                                <view class="baodan-container-item-right">{{item.protectiontime}}</view>
+                            </view>
+                        </view>
+                        <image src="{{item.image}}" style="height: 200rpx;width:200rpx;padding:5rpx;"></image>        
+                    </view>
+                    <view class="baodan-detail" bind:tap="onbaodanDetails">
+                        查看详细
+                    </view>
+                </view>
+            </van-tab>
+            <van-tab title="待续保">
+                <view wx:for="{{baodanlistall}}" wx:key="index" class="baodanlist">
+                    <view class="baodan-title">
+                        <view class="title-left">{{item.productname}}</view>
+                        <view class="title-right">{{item.status}}</view>
+                    </view>    
+                    <view class="baodan-info">
+                        <view class="baodan-container">
+                            <view class="baodan-container-item">
+                                <view class="baodan-container-item-left">被保人:</view>
+                                <view class="baodan-container-item-right">{{item.people}}</view>
+                            </view>
+                            <view class="baodan-container-item">
+                                <view class="baodan-container-item-left">保单号:</view>
+                                <view class="baodan-container-item-right">{{item.policynumber}}</view>
+                            </view>
+                            <view class="baodan-container-item">
+                                <view class="baodan-container-item-left">保障期限:</view>
+                                <view class="baodan-container-item-right">{{item.protectiontime}}</view>
+                            </view>
+                        </view>
+                        <image src="{{item.image}}" style="height: 200rpx;width:200rpx;padding:5rpx;"></image>        
+                    </view>
+                    <view class="baodan-detail" bind:tap="onbaodanDetails">
+                        查看详细
+                    </view>
+                </view>
+            </van-tab>
+            <van-tab title="已关闭">
+                <view wx:for="{{baodanlistall}}" wx:key="index" class="baodanlist">
+                    <view class="baodan-title">
+                        <view class="title-left">{{item.productname}}</view>
+                        <view class="title-right">{{item.status}}</view>
+                    </view>    
+                    <view class="baodan-info">
+                        <view class="baodan-container">
+                            <view class="baodan-container-item">
+                                <view class="baodan-container-item-left">被保人:</view>
+                                <view class="baodan-container-item-right">{{item.people}}</view>
+                            </view>
+                            <view class="baodan-container-item">
+                                <view class="baodan-container-item-left">保单号:</view>
+                                <view class="baodan-container-item-right">{{item.policynumber}}</view>
+                            </view>
+                            <view class="baodan-container-item">
+                                <view class="baodan-container-item-left">保障期限:</view>
+                                <view class="baodan-container-item-right">{{item.protectiontime}}</view>
+                            </view>
+                        </view>
+                        <image src="{{item.image}}" style="height: 200rpx;width:200rpx;padding:5rpx;"></image>        
+                    </view>
+                    <view class="baodan-detail" bind:tap="onbaodanDetails">
+                        查看详细
+                    </view>
+                </view>
+            </van-tab>
+        </van-tabs>
+    
+        <!-- <van-tabs active="a">
+            <van-tab title="标签 1" name="a">内容 1</van-tab>
+            <van-tab title="标签 2" name="b">内容 2</van-tab>
+            <van-tab title="标签 3" name="c">内容 3</van-tab>
+        </van-tabs> -->
+
+    </view>
+</view>

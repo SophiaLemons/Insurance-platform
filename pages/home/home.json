@@ -1,0 +1,7 @@
+{
+  "usingComponents": {},
+  "enablePullDownRefresh": true,
+  "navigationBarBackgroundColor": "#FCBF00",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "旅行服务平台"
+}

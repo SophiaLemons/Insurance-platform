@@ -1,0 +1,70 @@
+<!--productA/pages/productList/productList.wxml-->
+<view class="productList-container">
+  <!-- 导航条 -->
+  <view class="goodsList-nav">
+    <van-tabs active="{{ active }}" bind:click="onClick" sticky color="#FCBF00" swipe-threshold="8">
+      <block wx:for="{{tabList}}" wx:key="{{item.id}}">
+        <van-tab title="{{item.title}}">
+          <!-- 优选推荐 商品栏 -->
+          <view class="goodsList-container">
+            <text class="goodsList-top">优选推荐</text>
+            <view class="goodsList-box" wx:for="{{goodsList}}" wx:key="index">
+              <view class="goodsList-item" bindtap="toProductDetail">
+                <view class="goodsList-left">
+                  <text class="goodsList-xinpin">新品</text>
+                  <image class="img" mode="widthFix" src="{{item.imgUrl}}"></image>
+                </view>
+                <view class="goodsList-right">
+                  <text class="goodsList-title">{{item.title}}</text>
+                  <view class="goodsList-tags">
+                    <text class="goodsList-tag">多次赔付</text>
+                    <text class="goodsList-tag">3-50岁可买</text>
+                  </view>
+                  <text class="goodsList-info">{{item.info}}</text>
+                  <view class="goodsList-bottom">
+                    <view class="goodsList-price">
+                      <text class="price-icon">￥</text>
+                      <text class="price">{{item.price}}</text>
+                      <text class="price-tag">起</text>
+                    </view>
+                    <text class="goodsList-num">{{item.num}}人已购</text>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+           <!-- 热销产品 商品栏 -->
+          <view class="goodsList-container">
+            <text class="goodsList-top">热销产品</text>
+            <view class="goodsList-box" wx:for="{{goodsList}}" wx:key="index">
+              <view class="goodsList-item">
+                <view class="goodsList-left">
+                  <text class="goodsList-xinpin">新品</text>
+                  <image class="img" mode="widthFix" src="{{item.imgUrl}}"></image>
+                </view>
+                <view class="goodsList-right">
+                  <text class="goodsList-title">{{item.title}}</text>
+                  <view class="goodsList-tags">
+                    <text class="goodsList-tag">多次赔付</text>
+                    <text class="goodsList-tag">3-50岁可买</text>
+                  </view>
+                  <text class="goodsList-info">{{item.info}}</text>
+                  <view class="goodsList-bottom">
+                    <view class="goodsList-price">
+                      <text class="price-icon">￥</text>
+                      <text class="price">{{item.price}}</text>
+                      <text class="price-tag">起</text>
+                    </view>
+                    <text class="goodsList-num">{{item.num}}人已购</text>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </van-tab>
+      </block>
+
+    </van-tabs>
+  </view>
+
+</view>

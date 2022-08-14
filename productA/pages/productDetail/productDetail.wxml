@@ -1,0 +1,219 @@
+<!--productA/pages/productDetail/productDetail.wxml-->
+<page-meta page-style="{{ show ? 'overflow: hidden;' : '' }}">
+  <view class="productDetail-container">
+    <!-- 顶部图片 -->
+    <view class="productDetail-img">
+      <image class="img" mode="widthFix" src="http://file.baozhixing.com/WechatIMG2099.jpeg"></image>
+    </view>
+    <!-- 商品详情 -->
+    <view class="productDetail-box">
+      <!-- 商品详情 -->
+      <view class="box1">
+        <text class="detail-title">泰然定期寿</text>
+        <view class="detail-info1">
+          <view class="detail-tags">
+            <text class="tag1">多次赔付</text>
+            <text class="tag2">性价比更高</text>
+          </view>
+          <view class="detail-logo">
+            <image class="logo" mode="widthFix" src="//files.huizecdn.com/file1/M00/3B/2B/wKgls1seJ1mAblGNAAAPICY-ZQM441.png"></image>
+          </view>
+        </view>
+        <view class="detail-info2">
+          <view class="info-item">
+            <text class="info-item-left">承保职业</text>
+            <text class="info-item-right">1-3类</text>
+          </view>
+          <view class="info-item">
+            <text class="info-item-left">限购份数</text>
+            <text class="info-item-right">1份</text>
+          </view>
+          <view class="info-item">
+            <text class="info-item-left">承保年龄</text>
+            <text class="info-item-right">18-60岁</text>
+          </view>
+        </view>
+      </view>
+      <!-- 投保方案 -->
+      <view class="box2">
+        <view class="box2-top">
+          <text class="box2-title">投保方案</text>
+          <view class="box2-top-right" is-link bindtap="showPopup">
+            <image class="box2-top-img" mode="widthFix" src="http://file.baozhixing.com/culcater.png"></image>
+            <text class="top-right-tag">保费试算</text>
+          </view>
+        </view>
+        <!-- 展示计算弹窗 -->
+        <view class="caculatePopup-box">  
+          <van-popup show="{{ show }}" position="bottom" closeable round custom-style="height: 70%;" bind:close="onClose" class="pop">
+            <view class="caculatePopup-top">
+              <text class="top-title">保费计算</text>
+            </view>
+            <view class="caculatePopup-context">
+              <view class="context-box">
+                <text class="context-box-title">恶性肿瘤给付保险金</text>
+                  <view class="context-box-items">
+                    <block  wx:for="{{caculatePopupList.insure}}" wx:key="index">
+                      <text class="context-box-item {{insureStatus === index ? 'context-box-item-active' : ''}}" bindtap="changeInsure" data-item="{{item}}">{{item.text}}</text>
+                    </block>
+                  </view>
+              </view>
+              <view class="context-box">
+                <text class="context-box-title">性别</text>
+                  <view class="context-box-items">
+                    <block  wx:for="{{caculatePopupList.sex}}" wx:key="index">
+                      <text class="context-box-item {{sexStatus === index ? 'context-box-item-active' : ''}}" bindtap="changeSex" data-item="{{item}}">{{item.text}}</text>
+                    </block>
+                  </view>
+              </view>
+              <view class="context-box">
+                <text class="context-box-title">缴费方式</text>
+                  <view class="context-box-items">
+                    <block  wx:for="{{caculatePopupList.way}}" wx:key="index">
+                      <text class="context-box-item {{wayStatus === index ? 'context-box-item-active' : ''}}" bindtap="changeWay" data-item="{{item}}">{{item.text}}</text>
+                    </block>
+                  </view>
+              </view>
+              <view class="context-box">
+                <text class="context-box-title">保障期限</text>
+                  <view class="context-box-items">
+                    <block  wx:for="{{caculatePopupList.time}}" wx:key="index">
+                      <text class="context-box-item {{timeStatus === index ? 'context-box-item-active' : ''}}" bindtap="changeTime" data-item="{{item}}">{{item.text}}</text>
+                    </block>
+                  </view>
+              </view>
+            </view>
+          
+          </van-popup>
+        </view>
+      
+        <view class="box2-center">
+          <view class="plan-items">
+            <block wx:for="{{planList}}" wx:key="index">
+              <view class="plan-item {{planStatus === index ? 'plan-item-active' : '' }}" bindtap="changePlan" data-index="{{index}}">{{item.plan}}</view>
+            </block>
+          </view>
+          <view class="plan-context">
+            <view class="content-item">
+              <text class="content-item-left">恶性肿瘤医疗保金</text>
+              <text class="content-item-right">30天-70周岁</text>
+            </view>
+            <view class="content-item">
+              <text class="content-item-left">恶性肿瘤医疗保金</text>
+              <text class="content-item-right">30天-70周岁</text>
+            </view>
+            <view class="content-item">
+              <text class="content-item-left">恶性肿瘤医疗保金</text>
+              <text class="content-item-right">30天-70周岁</text>
+            </view>
+            <view class="content-item">
+              <text class="content-item-left">恶性肿瘤医疗保金</text>
+              <text class="content-item-right">30天-70周岁</text>
+            </view>
+          </view>
+        </view>
+        <view class="box2-bottom">
+          <text class="bottom-info">查看保障详情</text>
+        </view>
+      </view>
+      <!-- 保费 -->
+      <view class="box3-container">
+        <view class="box3-top">
+          <text class="box3-top-left">保费</text>
+          <view class="box3-top-right">
+            <text class="price-tag1">￥</text>
+            <text class="price-tag2">775.00</text>
+            <text class="price-tag3">起</text>
+          </view>
+        </view>
+        <view class="box3-center">
+          <text class="center-title">为什么要买泰然定期寿险？</text>
+          <text class="center-item">家庭支柱无保障，沉重经济负担</text>
+          <text class="center-item">房贷车贷还款有保障</text>
+          <text class="center-item">一站式优质就医资源，看病不求人</text>
+        </view>
+        <view class="box3-bottom">
+          <image class="box3-img" mode="widthFix" src="http://file.baozhixing.com/wKgls1s5mfqAG6iqAAbZAyZHzDk788.png"></image>
+        </view>
+      </view>
+      <!-- 理赔流程 -->
+      <view class="box4-container">
+        <view class="box4-title">理赔流程</view>
+        <view class="box4-items">
+          <view class="box4-item">
+            <image class="box4-item-img" src="http://file.baozhixing.com/shenqing.png"></image>
+            <text class="box4-item-title">平台申请报室</text>
+          </view>
+          <image class="right_icon1" src="http://file.baozhixing.com/error_right.png" mode="widthFix"></image>
+          <view class="box4-item">
+            <image class="box4-item-img" src="http://file.baozhixing.com/cailiao.png"></image>
+            <text class="box4-item-title">提交理赔材料</text>
+          </view>
+          <image class="right_icon2" src="http://file.baozhixing.com/error_right.png" mode="widthFix"></image>
+          <view class="box4-item">
+            <image class="box4-item-img" src="http://file.baozhixing.com/peichang.png"></image>
+            <text class="box4-item-title">领取赔偿金</text>
+          </view>
+        </view>
+        <view class="box4-bottom">
+          查看理赔详情
+        </view>
+      </view>
+    </view>
+    <!-- 须知 问题 条款 -->
+    <view class="productDetail-menu">
+      <view class="menu-items">
+        <view class="menu-item menu-item-after" bindtap="showXuzhi">
+          <image class="menu-img" mode="widthFix" src="http://file.baozhixing.com/xuzhi.png"></image>
+          <text class="menu-info">投保须知</text>
+        </view>
+        <view class="menu-item menu-item-after" bindtap="showTiaokuan">
+          <image class="menu-img" mode="widthFix" src="http://file.baozhixing.com/tiaokuan.png"></image>
+          <text class="menu-info">保险条款</text>
+        </view>
+        <view class="menu-item">
+          <image class="menu-img" mode="widthFix" src="http://file.baozhixing.com/wenti.png"></image>
+          <text class="menu-info">常见问题</text>
+        </view>
+      </view>
+    </view>
+  <!-- 咨询弹窗 -->
+  <van-dialog id="van-dialog" confirm-button-color="#576B95" />
+  <!-- 客服弹窗 -->
+  <view class="kefu-box">
+    <van-popup show="{{ showKeFu }}" bind:close="onCloseKeFu" closeable round>
+      <view class="kefu-container">
+        <view class="kefu-title">客服咨询</view>
+        <view class="kefu-info">
+          <view class="kefu-tag1">产品条款看不懂？ 健康告知有疑问？</view>
+          <view class="kefu-tag2">我们的顾问为您提供专业解答！</view>
+        </view>
+        <view class="kefu-icon">
+          <van-divider dashed />
+          <view  class="kefu-img">
+            <image src='http://file.baozhixing.com/IMG_1466.png' style='height:360rpx;width:360rpx;' show-menu-by-longpress></image>
+          </view>
+          <view class="kefu-tip">点击二维码长按保存</view>
+          <view class="kefu-copy" bindtap="copyWeixi">复制微信号</view>
+        </view>
+      </view>
+    </van-popup>
+  </view>
+    <!-- 底部 -->
+    <view class="footer">
+      <van-goods-action>
+        <van-goods-action-icon icon="service-o" bindtap="ShowDialog" text="咨询" bind:click="onClickIcon" />
+        <van-goods-action-icon icon="phone-o" text="客服" is-link bind:click="onClickkefu" />
+        <view class="footer-price">
+          <text class="price-left">￥</text>
+          <text class="peice-right">775.50</text>
+        </view>
+        <van-goods-action-button type="warning" text="立即投保" 
+        bind:click="onClickButton" />
+      </van-goods-action>
+    </view>
+  </view>
+</page-meta>
+
+<tiaokuan hiddenTiaokuan='{{showTiaokuan}}'></tiaokuan>
+<xuzhi hiddenXuzhi='{{showXuzhi}}'></xuzhi>

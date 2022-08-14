@@ -1,0 +1,161 @@
+<!--pages/home/home.wxml-->
+<view class="home-box" style="{{scrollTop > bannerHight  ? 'padding-top:300rpx' : ''}}">
+  <!-- 轮播图 -->
+  <view class="swipwer-box">
+    <swiper class="swiper-container" indicator-dots indicator-active-color="#fff" autoplay circular indicator-color="gray">
+      <swiper-item class="swiper-item">
+        <image class="img-item" src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640">
+        </image>
+      </swiper-item>
+      <swiper-item class="swiper-item">
+        <image class="img-item" src="https://images.unsplash.com/photo-1551214012-84f95e060dee?w=640">
+        </image>
+      </swiper-item>
+      <swiper-item class="swiper-item">
+        <image class="img-item" src="https://images.unsplash.com/photo-1551446591-142875a901a1?w=640">
+        </image>
+      </swiper-item>
+    </swiper>
+  </view>
+
+  <view class="container-box" >
+
+    <!-- 功能菜单 -->
+    <view class="menu-box">
+      <view class="menu-item" bindtap="ShowDialog">
+        <image class="menu-img" src="http://file.baozhixing.com/zixun1.png"></image>
+        <text class="menu-text">咨询</text>
+      </view>
+     
+      <block wx:for="{{menu}}" wx:key="index">
+        <navigator url="{{item.jumpurl}}" open-type="navigate">
+          <view class="menu-item">
+            <image class="menu-img" src="{{item.image}}"></image>
+            <text class="menu-text">{{item.text}}</text>
+          </view>
+        </navigator>
+      </block>
+    </view>
+
+    <!-- 分类菜单 -->
+    <view class="{{scrollTop > bannerHight || show === true ? 'nav_fixed' : ''}}">
+      <view class="category-box">
+        <view class="cate-container">
+          <view class="cate-box">
+            <block wx:for="{{cateMenu}}" wx:key="index">
+              <text class="cate-item {{cateState === index ? 'cate-item-active' : ''}}" bindtap="changeCate" data-index="{{index}}">{{item.text}}</text>
+            </block>
+          </view>
+        </view>
+          <!-- 咨询弹窗 -->
+          <van-dialog id="van-dialog" confirm-button-color="#576B95" />
+        <!-- 预算 -->
+        <view class="budget-containr">
+          <view class="budget-box">
+            <block wx:for="{{budget}}" wx:key="index">
+              <text class="budget-item {{bugState === index ?'budget-item-active' : ''}}" bindtap="changeBug" data-index="{{index}}">{{item.context}}</text>
+            </block>
+          </view>
+          <view class="budget-item-model"></view>
+        </view>
+        <view class="cate-icon">
+          <van-icon class="icon" name="apps-o" size="24px" color="gray" is-link bind:click="showPopup" />
+        </view>
+      
+        <!-- 顶部弹窗 -->
+        <view class="popup-container">
+          <van-popup show="{{ show }}" position="top" custom-style="height: 40%;" bind:close="onClose" round closeable close-icon-position="top-right">
+            <view class="popup-top">
+              <text class="title">选择种类</text>
+            </view>
+            <view class="popup-box">
+              <block wx:for="{{popupList}}" wx:key="index">
+                <text class="popup-item {{popupState === index ? 'popup-item-active' : ''}}"
+                bindtap="changePopup" data-item="{{item}}"
+                >{{item.text}}</text>
+              </block>
+            </view>
+          </van-popup>
+        </view>
+
+      </view>
+    </view>
+
+
+    <!-- 商品列表 -->
+    <view class="goodsList-container">
+      <view class="goodsList-box" wx:for="{{goodsList}}" wx:key="index">
+        <navigator class="goodsList-item" url="/productA/pages/productDetail/productDetail?id={{item.id}}" open-type="navigate">
+          <view class="goodsList-left">
+            <text class="goodsList-xinpin">新品</text>
+            <image class="img" mode="widthFix" src="{{item.imgUrl}}"></image>
+          </view>
+          <view class="goodsList-right">
+            <text class="goodsList-title">{{item.title}}</text>
+            <view class="goodsList-tags">
+              <text class="goodsList-tag">多次赔付</text>
+              <text class="goodsList-tag">3-50岁可买</text>
+            </view>
+            <text class="goodsList-info">{{item.info}}</text>
+            <view class="goodsList-bottom">
+              <view class="goodsList-price">
+                <text class="price-icon">￥</text>
+                <text class="price">{{item.price}}</text>
+                <text class="price-tag">起</text>
+              </view>
+              <text class="goodsList-btn">测评</text>
+            </view>
+          </view>
+        </navigator>
+      </view>
+    </view>
+
+    <!-- 旅行服务平台 -->
+    <view class="article-container">
+      <text class="title">旅行服务平台</text>
+      <view class="article-box" wx:for="{{articleList}}" wx:key="index">
+        <view class="article-item">
+          <view class="article-left">
+            <text class="article-title">{{item.title}}</text>
+            <view class="article-info">
+              <text class="article-time">{{item.time}}</text>
+              <text class="article-tag">{{item.tag}}</text>
+            </view>
+          </view>
+          <view class="article-right">
+            <image class="article-img" mode="widthFix" src="{{item.imgUrl}}"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 保险服务 -->
+    <view class="Insurance-container">
+      <text class="Insurance-title">保险服务</text>
+      <view class="Insurance-item">
+        <view class="Insurance-left">
+          <text class="left-title">保单管理</text>
+          <text class="left-info">您的保险小管家</text>
+        </view>
+        <view class="Insurance-right">
+          <text class="right-title">预核保检测</text>
+          <text class="right-info">投保无忧</text>
+        </view>
+      </view>
+    </view>
+    <!-- 保障课堂 -->
+    <view class="class-continer">
+      <text class="class-title">保障课堂</text>
+      <view class="class-box" wx:for="{{classList}}" wx:key="index">
+        <view class="class-item">
+          <view class="class-item-img">
+            <image class="img" src="{{item.imgUrl}}"></image>
+          </view>
+          <view class="class-item-info">
+            <text class="class-item-title">{{item.title}}</text>
+            <text class="class-item-text">{{item.text}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
